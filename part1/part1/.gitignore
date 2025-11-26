@@ -1,0 +1,65 @@
+# Python
+*.py[cod]
+__pycache__/
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Pyenv
+.python-version
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Installer logs
+pip-wheel-metadata/
+pip-selfcheck.json
+
+# Coverage and test reports
+.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+coverage.xml
+nosetests.xml
+
+# Mypy
+.mypy_cache/
+
+# Environment files
+.env
+*.env
+
+# Celery
+celerybeat-schedule
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+local_settings.py
