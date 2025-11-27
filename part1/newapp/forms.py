@@ -8,3 +8,7 @@ class SampleForm(forms.Form):
     check=forms.BooleanField(label='Accept Terms')
     birth_date = forms.DateField(label='Birth Date')   
     appointment_time = forms.DateTimeField(label='Appointment Time')
+    CHOICES=[('s', 'small'), ('m', 'medium'), ('l', 'large')]
+    size=forms.ChoiceField(choices=CHOICES, label='Size')
+    MEAL=[('b', 'breakfast'), ('l', 'lunch'), ('d', 'dinner')] 
+    meal_preference=forms.MultipleChoiceField(choices=MEAL, label='Meal Preference')
