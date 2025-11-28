@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import SampleForm
+from .forms import SampleForm, StudentData
 def base(request):
     return render(request, 'base.html')
 def home(request):
@@ -27,3 +27,13 @@ def ContactForm(request):
         form=SampleForm()
     return render(request, 'contact.html', {'form': form})
 # Create your views here.
+
+def StudentForm(request):
+    if request.method == 'POST':
+        form=StudentData(request.POST,request.FILES)
+        if form.is_valid():
+            print(form.cleaned_data)
+            
+    else:
+        form=StudentData()
+    return render(request, 'contact.html', {'form': form})

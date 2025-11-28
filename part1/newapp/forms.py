@@ -12,3 +12,17 @@ class SampleForm(forms.Form):
     size=forms.ChoiceField(choices=CHOICES, label='Size',widget=forms.RadioSelect)
     MEAL=[('b', 'breakfast'), ('l', 'lunch'), ('d', 'dinner')] 
     meal_preference=forms.MultipleChoiceField(choices=MEAL, label='Meal Preference',widget=forms.CheckboxSelectMultiple)
+class StudentData(forms.Form):
+    name = forms.CharField(label="Name", widget=forms.TextInput(attrs={'placeholder': 'Full name'}))
+    email = forms.EmailField(label="Email", widget=forms.EmailInput(attrs={'placeholder': 'your@email.com'}))
+    def clean_name(self):
+        valname=self.cleaned_data['name']
+        if len(valname)<10:
+            raise forms.ValidationError("Enter your name at least 10 char")
+        return valname  
+    def clean_email(self):
+        valemail=self.cleaned_data['email']
+        if '.com' not in valemail:
+            raise forms.ValidationError("email should have be .com")
+        return valemail
+
