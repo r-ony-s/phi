@@ -15,14 +15,15 @@ class SampleForm(forms.Form):
 class StudentData(forms.Form):
     name = forms.CharField(label="Name", widget=forms.TextInput(attrs={'placeholder': 'Full name'}))
     email = forms.EmailField(label="Email", widget=forms.EmailInput(attrs={'placeholder': 'your@email.com'}))
-    def clean_name(self):
+    def clean(self):
+        cleaned_data=super().clean()
         valname=self.cleaned_data['name']
+        valemail=self.cleaned_data['email']
         if len(valname)<10:
             raise forms.ValidationError("Enter your name at least 10 char")
-        return valname  
-    def clean_email(self):
-        valemail=self.cleaned_data['email']
+          
         if '.com' not in valemail:
             raise forms.ValidationError("email should have be .com")
-        return valemail
+        
 
+    
