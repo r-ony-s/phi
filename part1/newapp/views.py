@@ -21,12 +21,8 @@ def ContactForm(request):
     if request.method == 'POST':
         form=SampleForm(request.POST, request.FILES)
         if form.is_valid():
-            file=form.cleaned_data['file']
-            with open('./newapp/upload/' + file.name, 'wb+') as destination:
-                for chunk in file.chunks():
-                    destination.write(chunk)
             print(form.cleaned_data)
-            return render(request, 'contact.html',{'form':form})
+            
     else:
         form=SampleForm()
     return render(request, 'contact.html', {'form': form})

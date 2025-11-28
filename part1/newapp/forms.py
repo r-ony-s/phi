@@ -1,15 +1,14 @@
 from django import forms
 class SampleForm(forms.Form):
-    name = forms.CharField(label='User Name')
-    file=forms.FileField(label='Upload File')
-    # email = forms.EmailField(label='User Email')
-    # age = forms.IntegerField(label='User Age')
+    name = forms.CharField(label='Full Name',initial="Rahim",help_text="Total length must be 70 char",required=False,widget=forms.Textarea(attrs={'id':'text_area','class':'class1 class 2','placeholder':'Enter your name'}))
+    email = forms.EmailField(label='User Email')
+    age = forms.CharField(label='User Age',widget=forms.NumberInput)
     # weight = forms.FloatField(label='User Weight')
     # balance = forms.DecimalField(label='Account Balance')
-    # check=forms.BooleanField(label='Accept Terms')
-    # birth_date = forms.DateField(label='Birth Date')   
-    # appointment_time = forms.DateTimeField(label='Appointment Time')
-    # CHOICES=[('s', 'small'), ('m', 'medium'), ('l', 'large')]
-    # size=forms.ChoiceField(choices=CHOICES, label='Size')
-    # MEAL=[('b', 'breakfast'), ('l', 'lunch'), ('d', 'dinner')] 
-    # meal_preference=forms.MultipleChoiceField(choices=MEAL, label='Meal Preference')
+    check=forms.BooleanField(label='Accept Terms')
+    birth_date = forms.CharField(label='Birth Date',widget=forms.DateInput(attrs={'type':'date'}))   
+    appointment_time = forms.CharField(label='Appointment Time',widget=forms.DateInput(attrs={'type':'datetime-local'}))
+    CHOICES=[('s', 'small'), ('m', 'medium'), ('l', 'large')]
+    size=forms.ChoiceField(choices=CHOICES, label='Size',widget=forms.RadioSelect)
+    MEAL=[('b', 'breakfast'), ('l', 'lunch'), ('d', 'dinner')] 
+    meal_preference=forms.MultipleChoiceField(choices=MEAL, label='Meal Preference',widget=forms.CheckboxSelectMultiple)
