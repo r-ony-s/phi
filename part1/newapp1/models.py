@@ -8,4 +8,4 @@ class SampleModel(models.Model):
     father_name=models.TextField(default='Rahim')
 
     def __str__(self):
-        return self.name
+        return f"roll: {self.roll}, name: {self.name}"

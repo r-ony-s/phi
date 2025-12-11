@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from . import models
 
 # Create your views here.
 def mode(request):
-    return HttpResponse("This is newapp1 application.")
+    students=models.SampleModel.objects.all()
+    print(students)
+    return render(request,'new.html',{'data':students})
