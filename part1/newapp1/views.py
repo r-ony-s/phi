@@ -13,7 +13,13 @@ from . import models
 #     print(std)
 #     return redirect('mode')
 def home(request):
-    std=StudentForm()
+    if request.method=='POST':
+        std=StudentForm(request.POST)
+        if std.is_valid():
+            std.save(commit=False)
+            print(std.cleaned_data)
+    else:
+        std=StudentForm()
     
     return render(request,'new.html',{'form':std})
 
