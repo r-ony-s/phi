@@ -16,7 +16,7 @@ def home(request):
     if request.method=='POST':
         std=StudentForm(request.POST)
         if std.is_valid():
-            std.save(commit=False)
+            std.save()
             print(std.cleaned_data)
     else:
         std=StudentForm()
