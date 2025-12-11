@@ -32,8 +32,7 @@ def StudentForm(request):
     if request.method == 'POST':
         form=StudentData(request.POST,request.FILES)
         if form.is_valid():
+            form=StudentData()
+            return render(request, 'contact.html', {'form': form})
             print(form.cleaned_data)
             
-    else:
-        form=StudentData()
-    return render(request, 'contact.html', {'form': form})
